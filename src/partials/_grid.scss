@@ -1,0 +1,116 @@
+
+.container,
+.container-full {
+    @extend .clearfix;
+    margin: 0 auto;
+
+    &.fixed,
+    .fixed & {
+        width: 100%;
+    }
+}
+
+// 1: Prevent horizontal scrollbar.
+.container-full {
+    overflow-x: hidden; // 1
+}
+
+// 1: Ensure .row negative gutter cannot cause horizontal scrollbar.
+.container {
+    max-width: $grid-container-max-width;
+    width: calc(100% - #{$grid-column-gutter}); // 1
+    &.fixed,
+    .fixed & {
+        width: $grid-container-max-width; // 1
+    }
+}
+// 1: .container not filling full width allows
+// for negative margin.
+.row,
+[class*="block-row-"] {
+    margin: 0 (-$grid-column-gutter/2); // 1
+    @extend .clearfix;
+}
+
+// No margin required.
+.no-spacing {
+    margin: 0;
+}
+
+// Block-row
+[class*="block-row-"] {
+    display: block;
+    padding: 0;
+    list-style: none;
+}
+
+// Columns
+[class*=col-],
+[class*="block-row-"] > * {
+    display: block;
+    float: left;
+    min-height: 1px;
+    width: 100%;
+    padding-left: ($grid-column-gutter/2); // 1
+    padding-right: ($grid-column-gutter/2); // 1
+}
+
+// Movable columns
+[class*=col-] {
+    &[class*=offset],
+    &[class*=push],
+    &[class*=pull] {
+        position: relative;
+    }
+}
+
+// 1: Remove gutter
+[class*="block-row-"].no-spacing > *,
+.no-spacing > [class*=col-] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// Equal height
+// Stop rows collapsing
+.equal-height {
+    display: table;
+    table-layout: fixed; // 1
+    height: 1px;
+    width: calc(100% + #{$grid-column-gutter});
+
+    &.no-spacing {
+        width: 100%;
+    }
+    // Without this columns shift right.
+    &:before {
+        display: none !important; // 1
+    }
+}
+
+.equal-height > [class*=col-] {
+    float: none;
+    vertical-align: top;
+}
+
+// Extra small
+@include grid-columns(xs);
+@include block-grid-columns(xs);
+
+// Small
+@include bp-min(s) {
+    @include grid-columns(s);
+    @include block-grid-columns(s);
+}
+
+// Medium
+@include bp-min(m) {
+    @include grid-columns(m);
+    @include block-grid-columns(m);
+}
+
+// Large
+@include bp-min(l) {
+    @include grid-columns(l);
+    @include block-grid-columns(l);
+}

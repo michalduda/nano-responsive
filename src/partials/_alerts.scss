@@ -1,0 +1,34 @@
+.alert {
+    @extend .clearfix;
+    position: relative;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    background-color: $alert-background-color;
+    border-left: 5px solid $alert-border-color;
+    color: darken($alert-background-color, 50);
+    &.success{
+    background-color: $alert-success-background-color;
+    border-left: 5px solid $alert-success-border-color;
+    color: darken($alert-success-background-color, 50);
+    }
+    &.error{
+    background-color: $alert-error-background-color;
+    border-left: 5px solid $alert-error-border-color;
+    color: darken($alert-error-background-color, 50);
+    }
+    .close {
+        position: relative;
+        right: -2.73rem;
+        top: .13rem;
+        float: right;
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        font-size: $h3-font-size;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

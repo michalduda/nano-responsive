@@ -1,0 +1,55 @@
+﻿//==
+// Creates text align classes for each breakpoint.
+//##
+@mixin text-align($bp) {
+    // XS doesn't have a min value.
+    @if $bp==xs {
+        .text-left-#{$bp} {
+            text-align: left;
+        }
+        .text-right-#{$bp} {
+            text-align: right;
+        }
+        .text-center-#{$bp} {
+            text-align: center;
+        }
+        @include bp-max($bp) {
+            .text-left-#{$bp}-only {
+                text-align: left;
+            }
+            .text-right-#{$bp}-only {
+                text-align: right;
+            }
+            .text-center-#{$bp}-only {
+                text-align: center;
+            }
+        }
+    }
+    @else {
+        @include bp-min($bp) {
+            .text-left-#{$bp} {
+                text-align: left;
+            }
+            .text-right-#{$bp} {
+                text-align: right;
+            }
+            .text-center-#{$bp} {
+                text-align: center;
+            }
+            // Large doesn't need an "only" since it operates on min width.
+            @if $bp !=l {
+                @include bp-max($bp) {
+                    .text-left-#{$bp}-only {
+                        text-align: left;
+                    }
+                    .text-right-#{$bp}-only {
+                        text-align: right;
+                    }
+                    .text-center-#{$bp}-only {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

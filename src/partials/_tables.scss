@@ -1,0 +1,13 @@
+// Make it responsive
+table {
+    margin: 1rem 0;
+    max-width: 100%;
+    width: 100%;
+
+    th,
+    td {
+        padding: $table-cell-pad;
+        text-align: left;
+        vertical-align: top;
+    }
+}
