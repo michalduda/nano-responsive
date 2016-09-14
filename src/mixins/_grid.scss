@@ -5,22 +5,21 @@
     // Calculate column width and without gutter.
     $column-width: (100% / $grid-column-count);
     $max-columns: $grid-column-count + 1;
-
     // Loop through and build the columns.
     @for $i from 1 to ($max-columns) {
         $temp-width: $column-width * $i;
-
         .col-#{$breakpoint}-#{$i} {
             width: $temp-width;
         }
         // We don't want add offsets etc to full width columns.
         @if $i < $max-columns {
             // Keep offset for now for backwards compatibility.
-            .offset-#{$breakpoint}-#{$i},
+            .offset-#{$breakpoint}-#{$i} {
+                margin-left: $temp-width;
+            }
             .push-#{$breakpoint}-#{$i} {
                 left: $temp-width;
             }
-
             .pull-#{$breakpoint}-#{$i} {
                 right: $temp-width;
             }
@@ -31,10 +30,9 @@
         display: table-cell;
         height: 100%;
     }
-
     .equal-height > .col-#{$breakpoint}-#{$grid-column-count} {
         display: table-caption;
-		height: auto;
+        height: auto;
     }
 }
 
@@ -47,18 +45,14 @@
     @for $i from 1 to ($max-columns) {
         // Calculate column width .
         $column-width: (100% / $i);
-
         .block-row-#{$breakpoint}-#{$i} {
-
             > * {
                 width: $column-width;
             }
-
-            > :nth-of-type(n+1) {
+            >:nth-of-type(n+1) {
                 clear: none;
             }
-
-            > :nth-of-type(#{$i}n+1) {
+            >:nth-of-type(#{$i}n+1) {
                 clear: both;
             }
         }
