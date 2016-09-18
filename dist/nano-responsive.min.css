@@ -546,19 +546,7 @@ table td,table th{padding:.5rem;text-align:left;vertical-align:top}
 .faded-out{opacity:0!important}
 .faded-in{opacity:1!important}
 .visible-l,.visible-m,.visible-s,.visible-xs{display:none!important}
-@media (max-width:34.99em){.hidden-xs{display:none!important}
-.visible-xs{display:block!important}
-.visible-xs.inline{display:inline!important}
-.visible-xs.inline-block{display:inline-block!important}
-table.visible-xs{display:table}
-thead.visible-xs{display:table-header-group!important}
-tfoot.visible-xs{display:table-footer-group!important}
-tr.visible-xs{display:table-row!important}
-td.visible-xs,th.visible-xs{display:table-cell!important}
-col.visible-xs{display:table-column!important}
-caption.visible-xs{display:table-caption!important}
-}
-@media (min-width:35em) and (max-width:47.99em){.hidden-s{display:none!important}
+@media (min-width:35em){.hidden-s{display:none!important}
 .visible-s{display:block!important}
 .visible-s.inline{display:inline!important}
 .visible-s.inline-block{display:inline-block!important}
@@ -570,7 +558,7 @@ td.visible-s,th.visible-s{display:table-cell!important}
 col.visible-s{display:table-column!important}
 caption.visible-s{display:table-caption!important}
 }
-@media (min-width:48em) and (max-width:67.49em){.hidden-m{display:none!important}
+@media (min-width:48em){.hidden-m{display:none!important}
 .visible-m{display:block!important}
 .visible-m.inline{display:inline!important}
 .visible-m.inline-block{display:inline-block!important}

@@ -2,7 +2,7 @@
 // Creates visibility classes for each breakpoint.
 //##
 @mixin visibility($bp) {
-    @include bp($bp) {
+    @include bp-min($bp) {
 
         .hidden-#{$bp} {
             display: none !important;
